@@ -1,0 +1,6 @@
++ Build Invoice "process.php"
++ Improve  image selection "buildupdate.js/build.php"
++ Add sign up functionality
+- Fill more info popups "build.php"
+- Save build functionality "index.php"
+
