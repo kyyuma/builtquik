@@ -6,8 +6,8 @@ include('LoggedBanner.php'); //logged banner is the top banner for all pages tha
     <!-- Header -->
     <header class="masthead text-white text-center">
         <div class="container">
-            <img class="img-fluid mb-5 d-block mx-auto" src="img/profile.png" alt="">
-            <h1 class="text-uppercase mb-0">Builtquiks Building Solutions</h1>
+            <img class="img-fluid mb-5 d-block mx-auto" src="/img/profile.png" alt="">
+            <h1 class="text-uppercase mb-0">BuiltQuik's Building Solutions</h1>
             <h2 class="font-weight-light mb-0">Prototype</h2>
         </div>
     </header>
@@ -15,19 +15,20 @@ include('LoggedBanner.php'); //logged banner is the top banner for all pages tha
  <!-- About Section -->
     <section class="bg-primary text-white mb-0" id="about">
       <div class="container">
-        <h2 class="text-center text-uppercase text-white">About</h2>
+        <h3 class="text-center text-uppercase text-white">BuiltQuik: An Innovative Regional Housing Solution</h3>
         <hr class="star-light mb-5">
-        <div class="row">
-          <div class="col-lg-4 ml-auto">
-            <p class="lead">This is where we fill an about section</p>
-          </div>
+        <!--<div class="row">
+          <div class="col-lg-4 ml-auto">-->
+           
+         <!-- </div>
           <div class="col-lg-4 mr-auto">
-            <p class="lead">Can be adjusted as needed</p>
+            <p class="lead">
+                
           </div>
-        </div>
+        </div> -->
         <div class="text-center mt-4">
-            Can position however or have about on a separate page
-        </div>
+            <p class="lead">BuiltQuik Pty Ltd is an Australian enterprise with a mission: to tackle the global housing crisis through local community engagement, standardised designs, and using cross-functional software.
+            The underlying design philosophy behind BuiltQuik’s products is to use readily-available, standardised building components which can be easily packaged for transport, and simply assembled on-site. The pre-certified modular parts can be produced locally, engaging regional suppliers, fabricators and contractors, which supports the sustainable development of local construction supply chains, and stimulates the local economy. </p>        </div>
       </div>
     </section>
 
@@ -37,16 +38,16 @@ include('LoggedBanner.php'); //logged banner is the top banner for all pages tha
         <h2 class="mt-4">Contact Us</h2>
           <address>
             <strong>Builtquik</strong>
-            <br>3481 Melrose Place
-            <br>Beverly Hills, CA 90210
+            <br>Level 3, 100 Harris St, 
+            <br>Pyrmont 2009, NSW Australia
             <br>
           </address>
           <address>
             <abbr title="Phone">P:</abbr>
-            (123) 456-7890
+            +61 (0)411 277 978
             <br>
             <abbr title="Email">E:</abbr>
-            <a href="mailto:#">name@example.com</a>
+            <a href="mailto:#">enquiries@builtquik.com</a>
           </address>
         </div>
       </div>
@@ -62,7 +63,7 @@ include('LoggedBanner.php'); //logged banner is the top banner for all pages tha
                         <br></p>
                 </div>
                 <div class="col-md-4 mb-5 mb-lg-0">
-                    <h4 class="text-uppercase mb-4">Around the Web (CONCEPT)</h4>
+                    <!-- <h4 class="text-uppercase mb-4">Around the Web (CONCEPT)</h4>-->
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item">
                             <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
@@ -90,7 +91,7 @@ include('LoggedBanner.php'); //logged banner is the top banner for all pages tha
                 </a>
                         </li>
                     </ul>
-                </div>
+                </div> 
                 <div class="col-md-4">
                     <h4 class="text-uppercase mb-4">About Lifting Point</h4>
                     <p class="lead mb-0">Placeholder</p>
@@ -101,7 +102,7 @@ include('LoggedBanner.php'); //logged banner is the top banner for all pages tha
 
     <div class="copyright py-4 text-center text-white">
         <div class="container">
-            <small>Copyright &copy; Krohnos 2018</small>
+            <small>Copyright &copy; BuiltQuik 2018</small>
         </div>
     </div>
 
