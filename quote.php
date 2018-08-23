@@ -31,7 +31,7 @@ if(!empty($_POST['Floor']) && !empty($_POST['Wall']) && !empty($_POST['Roof']))
 <table >
  <tr>
   <td>
-  <p class=MsoTitle><span lang=EN-US>BQ Quote</span></p>
+  <p class=MsoTitle><span lang=EN-US>BuiltQuik Quote</span></p>
   </td>
   <td width=224 colspan=3 valign=top style='width:168.0pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:43.2pt;mso-height-rule:exactly'>
@@ -237,7 +237,7 @@ if(!empty($_POST['Floor']) && !empty($_POST['Wall']) && !empty($_POST['Roof']))
   <p class=Style1 style='mso-yfti-cnfc:1;mso-element:frame;mso-element-frame-hspace:
   0cm;mso-element-wrap:auto;mso-element-anchor-vertical:margin;mso-element-anchor-horizontal:
   column;mso-element-left:left;mso-element-top:0cm;mso-height-rule:exactly'><span
-  lang=EN-US style='text-transform:uppercase'>Cost of Material (M^2)</span></p>
+  lang=EN-US style='text-transform:uppercase'>Cost of Material (m<sup>2</sup>)</span></p>
   </td>
   <td width=113 valign=top style='width:85.1pt;border:none;border-bottom:solid #0D0D0D 1.0pt;
   mso-border-bottom-themecolor:text1;mso-border-bottom-themetint:242;
@@ -246,7 +246,7 @@ if(!empty($_POST['Floor']) && !empty($_POST['Wall']) && !empty($_POST['Roof']))
   <p class=Style1 style='mso-yfti-cnfc:1;mso-element:frame;mso-element-frame-hspace:
   0cm;mso-element-wrap:auto;mso-element-anchor-vertical:margin;mso-element-anchor-horizontal:
   column;mso-element-left:left;mso-element-top:0cm;mso-height-rule:exactly'><span
-  lang=EN-US style='text-transform:uppercase'>M^2 Cladding Required<o:p></o:p></span></p>
+  lang=EN-US style='text-transform:uppercase'>m<sup>2</sup> Cladding Required<o:p></o:p></span></p>
   </td>
   <td width=108 valign=top style='width:80.85pt;border:none;border-bottom:solid #0D0D0D 1.0pt;
   mso-border-bottom-themecolor:text1;mso-border-bottom-themetint:242;
@@ -257,7 +257,7 @@ if(!empty($_POST['Floor']) && !empty($_POST['Wall']) && !empty($_POST['Roof']))
   column;mso-element-left:left;mso-element-top:0cm;mso-height-rule:exactly'><span
   lang=EN-US style='text-transform:uppercase'><w:Sdt ShowingPlcHdr="t"
    Temporary="t" DocPart="9A9119DD4B624D12920074F7C451AEDB" Title="Unit price:"
-   SdtTag="Unit price:" ID="-67812516">unit price</w:Sdt> (per m^2)<o:p></o:p></span></p>
+   SdtTag="Unit price:" ID="-67812516">unit price</w:Sdt> (per m<sup>2</sup>)<o:p></o:p></span></p>
   </td>
   <w:Sdt ShowingPlcHdr="t" Temporary="t"
    DocPart="D264CED4E64540779BA0BE8053FC89DC" Title="Line total:"
@@ -283,7 +283,7 @@ if(!empty($_POST['Floor']) && !empty($_POST['Wall']) && !empty($_POST['Roof']))
   mso-border-top-themeshade:166;mso-border-alt:solid #A6A6A6 .5pt;mso-border-themecolor:
   background1;mso-border-themeshade:166;mso-border-bottom-alt:solid windowtext .5pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:21.6pt'>
-  <p class=Normalright style='mso-yfti-cnfc:64'><span lang=EN-US>Bay</span></p>
+  <p class=Normalright style='mso-yfti-cnfc:64'><span lang=EN-US>Frame</span></p>
   </td>
   <td width=120 valign=top style='width:89.85pt;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid #A6A6A6 1.0pt;

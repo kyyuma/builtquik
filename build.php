@@ -11,8 +11,8 @@ include('LoggedBanner.php'); //logged banner is the top banner for all pages tha
         </div>
         <!-- /.col-lg-8 -->
         <div class="col-lg-4">
-          <h1>Bays</h1>
-          <p>Select the number of bays you would like</p>
+          <h1>Frames</h1>
+          <p>Select the number of frames you would like</p>
             <select id="baysnum" name="baysnum">
                 <option value="3"> 3</option>
                 <option value="6"> 6</option>
