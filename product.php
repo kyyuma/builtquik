@@ -28,23 +28,36 @@ include('LoggedBanner.php'); //logged banner is the top banner for all pages tha
 
  <!-- Product Images Section -->
 
+
     <section class="product" id="product">
       <div class="container">
         <h2 class="text-center text-uppercase text-secondary mb-0">Our Products</h2>
         <hr class="star-dark mb-5">
         <div class="row">
           <div class="col-md-4 col-lg-4">
-            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-1">
+            <a
+                class="portfolio-item d-block mx-auto"
+                href="#portfolio-modal-1"
+                data-toggle="modal"
+                data-target="#portfolio-modal-1"
+            >
               <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
                 <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
                  
                 </div>
               </div>
-              <img class="img-fluid" src="img/portfolio/3-bay.png" alt="">
+              <img class="img-fluid" src="img/portfolio/3-bay.png" alt="" >
+                
             </a>
+              
           </div>
           <div class="col-md-4 col-lg-4">
-            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-2">
+            <a
+                class="portfolio-item d-block mx-auto"
+                href="#portfolio-modal-2"
+                data-toggle="modal"
+                data-target="#portfolio-modal-2"
+            >
               <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
                 <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
                  
@@ -59,85 +72,102 @@ include('LoggedBanner.php'); //logged banner is the top banner for all pages tha
    
 <!-- Portfolio Modals -->
 
-    <!-- Portfolio Modal 1 -->
-    <div class="portfolio-modal mfp-hide" id="portfolio-modal-1">
-      <div class="portfolio-modal-dialog bg-white">
-        <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
-          <i class="fa fa-3x fa-times"></i>
-        </a>
-        <div class="container text-center">
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <h2 class="text-secondary text-uppercase mb-0">3-Bay</h2>
-              <hr class="star-dark mb-5">
+<!--Modal 1-->
+<div class="modal fade" id="portfolio-modal-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+       <h4 class="modal-title" id="exampleModalLabel">3-Bay</h4>
+           <br/>
               <p class="mb-5">Roof-pitch variations include skew, skillion or centred.</p>
-                  <div class="row">
-           <div class="col-lg-4 ml-auto">
+      </div>
+      <div class="modal-body">
+          <div class="container">
+                 <div class="row">
+           <div class="col-lg-4" colspan=2>
                <img src="img/product/3skew.png" width=300px/>
-               <p>3-Bay Skew roof</p>
+               <p>Skew roof</p>
+               <br>
             </div>
-           <div class="col-lg-4 ml-auto">
+              </div>
+              <div class="row">
+           <div class="col-lg-4" colspan=2>
                <img src="img/product/3centred.png" width=300px/>
-               <p>3-Bay Centred roof</p>
+               <p>Centred roof</p>
             </div>
           </div>
           <div class="row">
-           <div class="col-lg-4 ml-auto">
+           <div class="col-lg-4" colspan=2>
                <br><br>
                <img src="img/product/3skillion.png" width=300px/>
-               <p>3-Bay Skillion roof</p>
+               <p>Skillion roof</p>
+               <br/>
             </div>
-            <div class="col-lg-4 ml-auto">
+              </div>
+          <div class="row">
+            <div class="col-lg-4" colspan=2>
                <img src="img/product/3topview.png" width=250px height=300px/>
-                <p>3-Bay Roof Top View</p>
+                <p>Roof Top View</p>
+              </div>
             </div>
           </div>
-            </div>
-          </div>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
+  </div>
+</div> 
 
-    <!-- Portfolio Modal 2 -->
-    <div class="portfolio-modal mfp-hide" id="portfolio-modal-2">
-      <div class="portfolio-modal-dialog bg-white">
-        <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
-          <i class="fa fa-3x fa-times"></i>
-        </a>
-        <div class="container text-center">
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <h2 class="text-secondary text-uppercase mb-0">7-Bay</h2>
-              <hr class="star-dark mb-5">
-              <p class="mb-5">Roof-pitch variations include skew or skillion.</p>
-                    <div class="row">
-           <div class="col-lg-4 ml-auto">
+ 
+<!--Modal 2-->
+<div class="modal fade" id="portfolio-modal-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">7-Bay</h4>
+          <p class="mb-5">Roof-pitch variations include skew or skillion.</p>
+      </div>
+      <div class="modal-body">
+         <div class="container-fluid">
+         <div class="row">
+           <div class="col-lg-4" colspan=2>
                <img src="img/product/7skew.png" width=300px/>
-               <p>7-Bay Skew roof</p>
+               <p>Skew roof</p>
             </div>
-           <div class="col-lg-4 ml-auto">
+             </div>
+             <div class="row">
+           <div class="col-lg-4" colspan=2>
+               <br>
                <img src="img/product/7skillion.png" width=300px/>
-               <p>7-Bay Skillion roof</p>
+               <p>Skillion roof</p>
             </div>
           </div>
           <div class="row">
-           <div class="col-lg-4 ml-auto">
+           <div class="col-lg-4" colspan=2>
                <br><br>
-               <img src="img/product/7skillion2.png" width=300px/>
-               <p>7-Bay Skillion roof</p>
+               <img src="img/product/7skillion2.png" width=300px />
+               <p >Skillion roof</p>
             </div>
-           <div class="col-lg-4 ml-auto">
+             </div>
+             <div class="row">
+           <div class="col-lg-4" colspan=2>
                <br><br>
-               <img src="img/product/2x7skew.png" width=500px/>
-               <p>7-Bay Skillion roof</p>
+               <img src="img/product/2x7skew.png" width=400px/>
+               <p align="center">2x7-Bay roof</p>
             </div>
           </div>
-                
-            </div>
           </div>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
+  </div>
+</div> 
+</div>
+</div> 
+
     <!-- Footer -->
     <footer class="footer text-center">
         <div class="container">
@@ -197,6 +227,10 @@ include('LoggedBanner.php'); //logged banner is the top banner for all pages tha
         <i class="fa fa-chevron-up"></i>
       </a>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 </body>
 </html>

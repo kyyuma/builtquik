@@ -31,6 +31,7 @@ if(!empty($_POST['Floor']) && !empty($_POST['Wall']) && !empty($_POST['Roof']))
 <table >
  <tr>
   <td>
+      <br>
   <p class=MsoTitle><span lang=EN-US>BuiltQuik Quote</span></p>
   </td>
   <td width=224 colspan=3 valign=top style='width:168.0pt;padding:0cm 5.4pt 0cm 5.4pt;
@@ -72,7 +73,7 @@ if(!empty($_POST['Floor']) && !empty($_POST['Wall']) && !empty($_POST['Roof']))
   font-family:"Franklin Gothic Demi",sans-serif;color:black;mso-themecolor:
   text1'><w:Sdt ShowingPlcHdr="t" Temporary="t"
    DocPart="2CDF128783D243BDB066130BA2CA8641" Title="Invoice number:"
-   SdtTag="Invoice number:" ID="-647741014">INVOICE NO</w:Sdt><o:p></o:p></span></p>
+   SdtTag="Invoice number:" ID="-647741014">Quote NO</w:Sdt><o:p></o:p></span></p>
   <p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;line-height:130%;
   mso-ascii-font-family:"Microsoft Sans Serif";mso-hansi-font-family:"Microsoft Sans Serif";
   mso-bidi-font-family:"Microsoft Sans Serif";color:black;mso-themecolor:text1'>001</span><span
@@ -724,7 +725,8 @@ if(!empty($_POST['Floor']) && !empty($_POST['Wall']) && !empty($_POST['Roof']))
   mso-border-right-alt:solid #BFBFBF .5pt;mso-border-right-themecolor:background1;
   mso-border-right-themeshade:191;padding:0cm 5.75pt 0cm 0cm;height:14.4pt'>
   <p class=MsoNormal align=left style='text-align:left;mso-yfti-cnfc:68'><span
-  lang=EN-US>To accept this quotation, return to [example@email.com]</span></p>
+  lang=EN-US>To accept this quotation, return to enquiries@builtquik.com</span></p>
+      <br><br>
   </td>
  </tr>
 </table>
