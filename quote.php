@@ -247,7 +247,7 @@ if(!empty($_POST['Floor']) && !empty($_POST['Wall']) && !empty($_POST['Roof']))
   <p class=Style1 style='mso-yfti-cnfc:1;mso-element:frame;mso-element-frame-hspace:
   0cm;mso-element-wrap:auto;mso-element-anchor-vertical:margin;mso-element-anchor-horizontal:
   column;mso-element-left:left;mso-element-top:0cm;mso-height-rule:exactly'><span
-  lang=EN-US style='text-transform:uppercase'>m<sup>2</sup> Cladding Required<o:p></o:p></span></p>
+  lang=EN-US style='text-transform:uppercase'>Cladding Required (m<sup>2</sup>)<o:p></o:p></span></p>
   </td>
   <td width=108 valign=top style='width:80.85pt;border:none;border-bottom:solid #0D0D0D 1.0pt;
   mso-border-bottom-themecolor:text1;mso-border-bottom-themetint:242;

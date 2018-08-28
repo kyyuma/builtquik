@@ -53,9 +53,9 @@ include('Verification.php');
               <li class="nav-item mx-0 mx-lg-1">
                   <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.php#contact">Contact</a>
               </li>
-            <!--  <li class="nav-item mx-0 mx-lg-1">
+              <li class="nav-item mx-0 mx-lg-1">
                   <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="build.php">Get Quote</a>
-              </li> -->
+              </li> 
               <li class="nav-item mx-0 mx-lg-1">
                 <a class="nav-link py-3 px-0 px-lg-3 rounded nav-links" href="supplier.html">Supplier Portal</a>
               </li>
