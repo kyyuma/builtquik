@@ -2,6 +2,79 @@
 include ('connect.php');
 include('LoggedBanner.php'); //logged banner is the top banner for all pages that can only be viewed once logged in
 ?>	
+
+    <!-- Header -->
+    <header class="masthead bg-primary text-white text-center">
+      <div class="container">
+        <img class="img-fluid mb-5 d-block mx-auto" src="img/profile.png" alt="">
+        <h2 class="text-uppercase mb-0">Get Your BuiltQuik Quote!</h2>
+          <hr class="star-light mb-5">
+      <br>
+    
+      </div>
+</header>
+
+<!-- Input Contact Details -->
+
+<div class="container">
+<form>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+        <br><br>
+      <label for="inputFname">First name</label>
+      <input type="text" class="form-control" id="inputFname" placeholder="First Name">
+    </div>
+    <div class="form-group col-md-6">
+        <br><br>
+      <label for="inputLname">Last name</label>
+      <input type="text" class="form-control" id="inputLname" placeholder="Last Name">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail">Email</label>
+      <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputTel">Mobile</label>
+      <input type="tel" class="form-control" id="inputTel" placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Address</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="123 Main St">
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Address 2</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, building, or floor">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">City</label>
+      <input type="text" class="form-control" id="inputCity">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <select id="inputState" class="form-control">
+          <option>A.C.T.</option>
+          <option selected>New South Wales</option>
+          <option>Northern Territory</option>
+          <option>Queensland</option>
+          <option>South Australia</option>
+          <option>Tasmania</option>
+          <option>Victoria</option>
+          <option>Western Australia</option>
+       
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputPostCode">Post Code</label>
+      <input type="text" class="form-control" id="inputPostCode">
+    </div>
+  </div>
+    </form>
+    </div>
+
  <div class="container buildcon">
      <form method="POST" action="quote.php" class="cd-form">
       <!-- Heading Row -->
@@ -113,7 +186,7 @@ include('LoggedBanner.php'); //logged banner is the top banner for all pages tha
                         <br></p>
                 </div>
                 <div class="col-md-4 mb-5 mb-lg-0">
-                    <h4 class="text-uppercase mb-4">Around the Web (CONCEPT)</h4>
+            
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item">
                             <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
@@ -152,7 +225,7 @@ include('LoggedBanner.php'); //logged banner is the top banner for all pages tha
 
    <div class="copyright py-4 text-center text-white">
         <div class="container">
-            <small>Copyright &copy; Krohnos 2018</small>
+            <small>Copyright &copy; BuiltQuik 2018</small>
         </div>
     </div>
 
