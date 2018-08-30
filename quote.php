@@ -90,19 +90,19 @@ if(!empty($_POST['Floor']) && !empty($_POST['Wall']) && !empty($_POST['Roof']))
   "Microsoft Sans Serif";mso-bidi-font-family:"Microsoft Sans Serif";
   color:black;mso-themecolor:text1'><w:Sdt ShowingPlcHdr="t" Temporary="t"
    DocPart="A802E7B48859485C8B4225689FC07456" Title="Enter your company name:"
-   SdtTag="Enter your company name:" ID="667059952">Your Company Name</w:Sdt><o:p></o:p></span></p>
+   SdtTag="Enter your company name:" ID="667059952">Builtquik  </w:Sdt><o:p></o:p></span></p>
   <p class=MsoNormal><span lang=EN-US style='mso-bidi-font-size:12.0pt;
   line-height:130%;mso-ascii-font-family:"Microsoft Sans Serif";mso-hansi-font-family:
   "Microsoft Sans Serif";mso-bidi-font-family:"Microsoft Sans Serif";
   color:black;mso-themecolor:text1'><w:Sdt ShowingPlcHdr="t" Temporary="t"
    DocPart="FAF56671BBB7475DB418E66C1D6FC372" Title="Enter street address:"
-   SdtTag="Enter street address:" ID="-119988914">Street Address</w:Sdt><o:p></o:p></span></p>
+   SdtTag="Enter street address:" ID="-119988914">Level 3, 100 Harris St </w:Sdt><o:p></o:p></span></p>
   <p class=MsoNormal><span lang=EN-US style='mso-bidi-font-size:12.0pt;
   line-height:130%;mso-ascii-font-family:"Microsoft Sans Serif";mso-hansi-font-family:
   "Microsoft Sans Serif";mso-bidi-font-family:"Microsoft Sans Serif";
   color:black;mso-themecolor:text1'><w:Sdt ShowingPlcHdr="t" Temporary="t"
    DocPart="D9EED90C54CD4DC69E3CBE0AB13D96DE" Title="Enter City, ST ZIP Code:"
-   SdtTag="Enter City, ST ZIP Code:" ID="-1166163437">City, ST ZIP Code</w:Sdt><o:p></o:p></span></p>
+   SdtTag="Enter City, ST ZIP Code:" ID="-1166163437">Pyrmont 2009, NSW Australia</w:Sdt><o:p></o:p></span></p>
   <p class=MsoNormal><span lang=EN-US style='mso-bidi-font-size:12.0pt;
   line-height:130%;mso-ascii-font-family:"Microsoft Sans Serif";mso-hansi-font-family:
   "Microsoft Sans Serif";mso-bidi-font-family:"Microsoft Sans Serif";
