@@ -2,6 +2,18 @@
 include ('connect.php'); //connects to database
 include ('Banner.php');
 
+?>
+<!-- Header -->
+    <header class="masthead bg-primary text-white text-center">
+      <div class="container">
+        <img class="img-fluid mb-5 d-block mx-auto" src="img/profile.png" alt="">
+        <h2 class="text-uppercase mb-0"></h2>
+      <br>
+        <p class="font-weight-light mb-0"></p>
+      </div>
+</header>
+
+<?php
 session_start();
 
 //create a new user
@@ -23,14 +35,12 @@ function NewUser($con)
     'cost' => 11,
     'salt' => random_bytes(22),
 	];
-
 	//hash password in database
 	$password = password_hash($_POST['spass'], PASSWORD_BCRYPT, $options);
-
 	$hash = md5(rand(0,1000)); // Generate random 32 character hash and assign it to a local variable. This hash is used for email verification.
 	
 	//add user to database as unactivated
-	$query = "INSERT INTO supplier (CompanyName,ABN,Region,PhoneNumber, StreetNumber, StreetName, Suburb, State, Postcode, email, password, hash) VALUES
+	$query = "INSERT INTO supplier (CompanyName,ABN,Region,PhoneNumber, StreetNumber, StreetName, Suburb, State, Postcode, Email, password, hash) VALUES
 	('$companyName','$ABN','$region','$phone','$STnum','$STname','$suburb','$state','$postcode','$email', '$password', '$hash')";
 	if($con->query($query) === TRUE)
 	{
@@ -71,6 +81,7 @@ function NewUser($con)
 			*/	
 			}
 	}else{
+        echo "Something went Wrong<br>";
 		echo "Error: " . $query . "<br>" . $con->error;
 	}
 }
@@ -94,7 +105,6 @@ function SignUp($con)
 }
 
 
-
 if(isset($_POST['ssubmit'])) //if submited on index.html run sign up function
 {
 	SignUp($con);
@@ -102,16 +112,12 @@ if(isset($_POST['ssubmit'])) //if submited on index.html run sign up function
 
 ?>
 
-<br>
-<a href="index.html">Home</a>
-</div>
+
+<a href="supplierIndex.php">Go Back</a>
 	<footer style="position:absolute; width:100%; bottom:0px; text-align:center; background-color: rgba(0,0,0,0.8); z-index:5;">
 		<div class="white" style="padding:6px; font-size:13px;">&copy; Khronos 2017</div>
 	</footer>
 
-
-</body>
-</html>
 
 <!--Page Authors -->
 <!--Matthew Winslow -->

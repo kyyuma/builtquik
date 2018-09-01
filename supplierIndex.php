@@ -1,7 +1,8 @@
 <?php
+include('connect.php');
 session_start();
 if (!isset($_SESSION['login'])){ //checks login has been defined before allowing access to certain pages
-	//header('Location: supplier.html');  //if login not defined take back to login
+	header('Location: supplier.html');  //if login not defined take back to login
 }
 ?>
 <!DOCTYPE html>
@@ -29,7 +30,14 @@ if (!isset($_SESSION['login'])){ //checks login has been defined before allowing
 
     <!-- Custom styles for this template -->
     <link href="css/freelancer.min.css" rel="stylesheet">
-
+    
+      <script type="text/javascript">
+function showfield(name){
+  if(name=='Other')document.getElementById('div1').innerHTML='<input class="form-control" id="comptype" name="comptypeoth" type="tel" placeholder="Other" required="required">';
+  else document.getElementById('div1').innerHTML='';
+}
+</script>
+      
   </head>
 
   <body id="page-top">
@@ -82,7 +90,7 @@ if (!isset($_SESSION['login'])){ //checks login has been defined before allowing
           <div class="col-lg-8 mx-auto">
             <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
             <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-             <form name="sentMessage" id="workshopForm" novalidate="novalidate" method="POST" action="#workshop"> <!--action="workshopadd.php"-->
+             <form name="sentMessage" id="workshopForm" novalidate="novalidate" method="POST" action="workshopadd.php"> <!--action="workshopadd.php"-->
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                   <label>Address</label>
@@ -120,11 +128,11 @@ if (!isset($_SESSION['login'])){ //checks login has been defined before allowing
               <div class="control-group">
                 <div id="workshopupdate" class="form-group floating-label-form-group controls mb-0 pb-2">
                   <label>Capability</label>
-                  <input id="cregion" name="sregion" type="checkbox" required="required" data-validation-required-message="Please enter your Region."> Welding and Fabrication<br>
-                  <input id="cregion" name="sregion" type="checkbox" required="required" data-validation-required-message="Please enter your Region."> Metal Cutting<br>
-                  <input id="cregion" name="sregion" type="checkbox" required="required" data-validation-required-message="Please enter your Region."> Processing<br>
-                    <input id="cregion" name="sregion" type="checkbox" required="required" data-validation-required-message="Please enter your Region."> Galvanising<br>
-                    <input id="cregion" name="sregion" type="checkbox" required="required" data-validation-required-message="Please enter your Region."> Distribution<br>
+                  <input name="sctype[]" type="checkbox" required="required" data-validation-required-message="Please enter your Region." value="Welding and Fabrication"> Welding and Fabrication<br>
+                  <input name="sctype[]" type="checkbox" required="required" data-validation-required-message="Please enter your Region." value="Metal Cutting"> Metal Cutting<br>
+                  <input name="sctype[]" type="checkbox" required="required" data-validation-required-message="Please enter your Region." value="Processing"> Processing<br>
+                    <input name="sctype[]" type="checkbox" required="required" data-validation-required-message="Please enter your Region." value="Galvanising"> Galvanising<br>
+                    <input name="sctype[]" type="checkbox" required="required" data-validation-required-message="Please enter your Region." value="Distribution"> Distribution<br>
                   <p class="help-block text-danger"></p>
                 </div>
                  </div>
@@ -132,9 +140,9 @@ if (!isset($_SESSION['login'])){ //checks login has been defined before allowing
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                     <label>Qualification Type</label>
-                      <input class="form-control" id="qtype" type="text" placeholder="Qualification Type"  name="sqtype" required="required" data-validation-required-message="Please enter your Qualifications.">
+                      <input class="form-control" type="text" placeholder="Qualification Type"  name="sqtype[0][0]" required="required" data-validation-required-message="Please enter your Qualifications.">
                        <label>Number Qualified</label>
-                      <input class="form-control" id="qnum" type="text" placeholder="Number Qualified"  name="sqnum" required="required" data-validation-required-message="Please enter your Qualifications.">
+                      <input class="form-control" type="text" placeholder="Number Qualified"  name="sqtype[0][1]" required="required" data-validation-required-message="Please enter your Qualifications.">
                     </div>
                   <p class="help-block text-danger"></p>
                 </div>
@@ -148,17 +156,21 @@ if (!isset($_SESSION['login'])){ //checks login has been defined before allowing
                      </div>
               <div class="control-group">
                 <div id="workshopupdate" class="form-group floating-label-form-group controls mb-0 pb-2">
-                  <label>Capability</label>
-                  <input id="cregion" name="sregion" type="checkbox" required="required" data-validation-required-message="Please enter your Region."> Welders<br>
-                  <input id="cregion" name="sregion" type="checkbox" required="required" data-validation-required-message="Please enter your Region."> Crane<br>
-                  <input id="cregion" name="sregion" type="checkbox" required="required" data-validation-required-message="Please enter your Region."> Capacity<br>
-                    <input id="cregion" name="sregion" type="checkbox" required="required" data-validation-required-message="Please enter your Region."> Forklift<br>
-                    <input id="cregion" name="sregion" type="checkbox" required="required" data-validation-required-message="Please enter your Region."> Folding Machines<br>
-                     <input id="cregion" name="sregion" type="checkbox" required="required" data-validation-required-message="Please enter your Region."> Grinders<br>
-                    <input id="cregion" name="sregion" type="checkbox" required="required" data-validation-required-message="Please enter your Region."> Tucks<br>
-                    <input id="cregion" name="sregion" type="checkbox" required="required" data-validation-required-message="Please enter your Region."> Saws<br>
-                    <input id="cregion" name="sregion" type="checkbox" required="required" data-validation-required-message="Please enter your Region."> Hoist<br>
-                    <input id="cregion" name="sregion" type="checkbox" required="required" data-validation-required-message="Please enter your Region."> Trucks<br>
+                  <label>Equipment</label>
+                    <?php
+                    $select = mysqli_query($con,"SELECT * FROM equipment");
+                    while($grab = mysqli_fetch_array($select,MYSQLI_ASSOC))
+                    {
+                        $a = array();
+                        $a['equipmentID'] = $grab['equipmentID'];
+                        $a['equipmentName'] = $grab['equipmentName'];
+                        $a['type'] = $grab['type'];
+            
+                        echo "
+
+				        <input name='sequipment[]' type='checkbox' value='".$a['equipmentID']."'>". $a['equipmentName'] . "<br>";
+	                }
+                    ?>
                   <p class="help-block text-danger"></p>
                 </div>
                  </div>
@@ -193,7 +205,28 @@ if (!isset($_SESSION['login'])){ //checks login has been defined before allowing
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                   <label>Name</label>
-                  <input class="form-control" id="name" type="text" placeholder="Name"  name="cconname" required="required" data-validation-required-message="Please enter your name.">
+                  <input class="form-control" id="conname" type="text" placeholder="Name"  name="cconname" required="required" data-validation-required-message="Please enter your name.">
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label>Contact Number</label>
+                  <input class="form-control" id="connumber" type="text" placeholder="Contact Number"  name="cconnum" required="required">
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+                <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label>Address</label>
+                  <input class="form-control" id="conaddress" type="text" placeholder="Address"  name="cconaddress" required="required">
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label>Region</label>
+                  <input class="form-control" id="conregion" type="text" placeholder="Region"  name="cconregion" required="required">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
@@ -211,35 +244,57 @@ if (!isset($_SESSION['login'])){ //checks login has been defined before allowing
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
+              <div id="capab">
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                  <label>Region</label>
-                  <input class="form-control" id="cregion" name="cregion" type="tel" placeholder="Region" required="required" data-validation-required-message="Please enter your Region.">
+                    <label>Capabilities</label>
+                      <input class="form-control" type="text" placeholder="Capability"  name="ccapa[]" required="required">
+                    </div>
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                  <label>Capabilities</label>
-                  <textarea class="form-control" id="ccapability" name="ccapability" rows="5" placeholder="Capabilities" required="required" data-validation-required-message="Please enter your capabilities."></textarea>
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                  <label>Phone Number</label>
-                  <input class="form-control" id="cphone" name="cphone" type="tel" placeholder="Phone Number" required="required" data-validation-required-message="Please enter your phone number.">
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
+                 <div id="capa">
+                    </div>
+                <div class="control-group">
+                     <div id="contractupdate" class="form-group floating-label-form-group controls mb-0 pb-2">
+                    <button type="button" id="addnewcapa" name="addnew" class="btn btn-primary btn-xl">Add Another</button>
+                     </div>
+                     </div>
                <div class="control-group">
                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                   <label>Qualification</label>
-                  <input class="form-control" id="cqual" name="cqual" type="tel" placeholder="Qualification" required="required" data-validation-required-message="Please enter your qualificaition.">
+                  <input class="form-control" id="cqual" name="cqual" type="tel" placeholder="Level of Qualification" required="required" data-validation-required-message="Please enter your qualificaition.">
                   
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
+                <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label>Number of Trainees</label>
+                  <input class="form-control" id="contrain" type="text" placeholder="Number of Trainees"  name="ccontrain" required="required">
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+                <div class="control-group">
+                <div id="conequip" class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label>Equipment</label>
+                    <?php
+                    $select = mysqli_query($con,"SELECT * FROM equipment");
+                    while($grab = mysqli_fetch_array($select,MYSQLI_ASSOC))
+                    {
+                        $a = array();
+                        $a['equipmentID'] = $grab['equipmentID'];
+                        $a['equipmentName'] = $grab['equipmentName'];
+                        $a['type'] = $grab['type'];
+            
+                        echo "
+
+				        <input name='conequipment[]' type='checkbox' value='".$a['equipmentID']."'>". $a['equipmentName'] . "<br>";
+	                }
+                    ?>
+                  <p class="help-block text-danger"></p>
+                </div>
+                 </div>
               <br>
               <div id="success"></div>
               <div class="form-group">
@@ -254,7 +309,73 @@ if (!isset($_SESSION['login'])){ //checks login has been defined before allowing
     <!-- Contact Section -->
     <section id="material">
       <div class="container">
-        <h2 class="text-center text-uppercase text-secondary mb-0">Add materials</h2>
+          <h2 class="text-center text-uppercase text-secondary mb-0">Add Existing materials</h2>
+        <hr class="star-dark mb-5">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+            <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+            <form name="sentMessage" id="materialForm" novalidate="novalidate" method="POST" action="materialaddexist.php">
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                <div class="text-center mt-4">
+        <table border='1'>
+				<tr>
+					<th class='textalign'>Add</th>
+					<th style='text-align: center;'>Material Name</th>
+                    <th style='text-align: center;'>Material Type</th>
+					<th style='text-align: center;'>Component Type</th>
+                    <th style='text-align: center;'>Length</th>
+                    <th style='text-align: center;'>Width</th>
+                    <th style='text-align: center;'>Thickness</th>
+                    
+				</tr>
+        <?php
+        $select = mysqli_query($con,"SELECT * FROM materials LEFT JOIN itemlist ON materials.MaterialID = itemlist.MaterialID WHERE SupplierId <>'".$_SESSION['login']."' OR SupplierId IS NULL");
+            //WHERE SupplierId ='".$_SESSION['login']."'
+        while($grab = mysqli_fetch_array($select,MYSQLI_ASSOC))
+	   {
+            $a = array();
+            $a['MaterialID'] = $grab['MaterialID'];
+            $a['MaterialName'] = $grab['MaterialName'];
+            $a['MaterialType'] = $grab['MaterialType'];
+            $a['Type'] = $grab['Type'];
+            $a['Length'] = $grab['Length'];
+            $a['Width'] = $grab['Width'];
+            $a['Thickness'] = $grab['Thickness'];
+            
+            echo "
+				<tr>
+                    <td class='accountdetailsedit'><input name='smaterial[]' type='checkbox' value='".$a['MaterialID']."'></td>
+					<td class='accountdetailsedit'>".  $a['MaterialName']. "</td>
+                    <td class='accountdetailsedit'>". $a['MaterialType']. "</td>
+                    <td class='accountdetailsedit'>". $a['Type']. "</td>
+                    <td class='accountdetailsedit'>". $a['Length']. "</td>
+                    <td class='accountdetailsedit'>". $a['Width']. "</td>
+                    <td class='accountdetailsedit'>". $a['Thickness']. "</td>
+				</tr>";
+            
+	
+	}
+
+    
+        ?>     
+          </table>
+	   <br>
+        
+    
+          
+        </div>
+                <div class="form-group">
+                <button type="submit" name="msubmit" class="btn btn-primary btn-xl" id="sendMessageButton">Submit</button>
+              </div>
+                  </div>
+                  </div>
+                  
+        </form>
+      </div>
+            <div class="container">
+        <br><h2 class="text-center text-uppercase text-secondary mb-0">Add New materials</h2>
         <hr class="star-dark mb-5">
         <div class="row">
           <div class="col-lg-8 mx-auto">
@@ -263,15 +384,15 @@ if (!isset($_SESSION['login'])){ //checks login has been defined before allowing
             <form name="sentMessage" id="materialForm" novalidate="novalidate" method="POST" action="materialadd.php">
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                  <label>Name</label>
-                  <input class="form-control" id="mname" type="text" placeholder="Name"  name="mname" required="required" data-validation-required-message="Please enter your name.">
+                  <label>Material Name</label>
+                  <input class="form-control" id="mname" type="text" placeholder="Material Name"  name="mname" required="required">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                 <br>
-                <select id="ctype" name="ctype" class="form-control" required="required" data-validation-required-message="Please enter your email address." >
+                <select id="mtype" name="mtype" class="form-control" required="required">
                     <option value="Wood"> Wood</option>
                     <option value="Metal"> Metal</option>
                     <option value="Fit-out Materials"> Fit-out Materials</option>
@@ -279,25 +400,49 @@ if (!isset($_SESSION['login'])){ //checks login has been defined before allowing
                     <option value="Plumbing Suppliers"> Plumbing Suppliers</option>
                     <option value="Appliances"> Appliances</option>
                 </select>
-                <select id="mtype" name="mtype" class="form-control" required="required" data-validation-required-message="Please enter your email address." >
-                    <option value="Wall"> Wall</option>
-                    <option value="Floor"> Floor</option>
-                    <option value="Roof"> Roof</option>
+                <p class="help-block text-danger"></p>
+                </div>
+                </div>
+                <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label>Component Type</label>
+                <select id="comptype" name="comptype" class="form-control" onchange="showfield(this.options[this.selectedIndex].value)" required="required">
+                    <option value="Structural"> Structural</option>
+                    <option value="Cladding"> Cladding</option>
+                    <option value="Plywood"> Plywood</option>
+                    <option value="Pre-fab"> Pre-fab</option>
+                    <option value="Purlins"> Purlins</option>
+                    <option value="Cladding"> Cladding</option>
+                    <option value="Box Section"> Box Section</option>
+                    <option value="Fitout"> Fitout</option>
+                    <option value="Waterproofing"> Waterproofing</option>
+                    <option value="PVC pipes"> PVC pipes</option>
+                    <option value="Water Tanks"> Water Tanks</option>
+                    <option value="Other">Other</option>
                 </select>
+                    <div id="div1"></div>
+                    
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                   <label>Length</label>
-                  <input class="form-control" id="clength" name="clength" type="tel" placeholder="Length" required="required" data-validation-required-message="Please enter your Region.">
+                  <input class="form-control" id="clength" name="clength" type="tel" placeholder="Length" required="required">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                   <label>Width</label>
-                  <input class="form-control" id="cwidth" name="cwidth" type="tel" placeholder="Width" required="required" data-validation-required-message="Please enter your Region.">
+                  <input class="form-control" id="cwidth" name="cwidth" type="tel" placeholder="Width" required="required" >
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+                <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label>Thickness</label>
+                  <input class="form-control" id="cthick" name="cthick" type="tel" placeholder="Width" required="required" >
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
@@ -310,11 +455,64 @@ if (!isset($_SESSION['login'])){ //checks login has been defined before allowing
           </div>
         </div>
       </div>
+        </div>
+        </div>
     </section>
       
       <section class="bg-primary text-white mb-0" id="equipment">
       <div class="container">
-        <h2 class="text-center text-uppercase text-white mb-0">Add Equipment details</h2>
+          <h2 class="text-center text-uppercase text-secondary mb-0">Add Existing materials</h2>
+        <hr class="star-dark mb-5">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+            <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+            <form name="sentMessage" id="equipForm" novalidate="novalidate" method="POST" action="equipmentaddexist.php">
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                <div class="text-center mt-4">
+        <table border='1'>
+				<tr>
+					<th class='textalign'>Add</th>
+					<th style='text-align: center;'>Equipment Name</th>
+                    <th style='text-align: center;'>Equipment Type</th>  
+				</tr>
+        <?php
+        $select = mysqli_query($con,"SELECT * FROM equipment LEFT JOIN supplierequipment ON equipment.equipmentID = supplierequipment.EquipmentID WHERE supplierequipment.SupplierId <>'".$_SESSION['login']."' OR supplierequipment.SupplierId IS NULL");
+            //WHERE SupplierId ='".$_SESSION['login']."'
+        while($grab = mysqli_fetch_array($select,MYSQLI_ASSOC))
+	   {
+            $a = array();
+            $a['equipmentID'] = $grab['equipmentID'];
+            $a['equipmentName'] = $grab['equipmentName'];
+            $a['type'] = $grab['type'];
+            
+            echo "
+				<tr>
+                    <td class='accountdetailsedit'><input name='sequipment[]' type='checkbox' value='".$a['equipmentID']."'></td>
+					<td class='accountdetailsedit'>".  $a['equipmentName']. "</td>
+                    <td class='accountdetailsedit'>".  $a['type']. "</td>
+				</tr>";    
+	
+	}
+
+        ?>     
+          </table>
+	   <br>
+        
+    
+          
+        </div>
+                <div class="form-group">
+                <button type="submit" name="esubmit" class="btn btn-primary btn-xl" id="sendMessageButton">Submit</button>
+              </div>
+                  </div>
+                  </div>
+                  
+        </form>
+      </div>
+      <div class="container">
+        <br><h2 class="text-center text-uppercase text-white mb-0">Add Equipment details</h2>
         <hr class="star-light mb-5">
         <div class="row">
           <div class="col-lg-8 mx-auto">
@@ -324,7 +522,7 @@ if (!isset($_SESSION['login'])){ //checks login has been defined before allowing
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                   <label>Name</label>
-                  <input class="form-control" id="name" type="text" placeholder="Name"  name="cconname" required="required" data-validation-required-message="Please enter your name.">
+                  <input class="form-control" id="name" type="text" placeholder="Equipment Name"  name="cconname" required="required">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
@@ -338,13 +536,6 @@ if (!isset($_SESSION['login'])){ //checks login has been defined before allowing
                     <option value="Installation Contractor Equiptment"> Installation Contractor Equiptment</option>
                     <option value="Building, Plumbing Concreter, Civil"> Building, Plumbing Concreter, Civil</option>
                 </select>
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                  <label>Capabilities</label>
-                  <textarea class="form-control" id="ccapability" name="ccapability" rows="5" placeholder="Capabilities" required="required" data-validation-required-message="Please enter your capabilities."></textarea>
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
